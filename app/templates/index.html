@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="mb-8 text-center max-w-xl mx-auto">
+  <h1 class="text-3xl font-extrabold text-white mb-2">Orphaned Code & Side-Project Exchange</h1>
+  <p class="text-gray-400 text-sm mb-6">अधूरे प्रोजेक्ट्स को नया जीवन दें या अपना कोड बेस शेयर करें।</p>
+  
+  <input 
+    type="text" 
+    name="q" 
+    placeholder="Search by title, stack, or keywords..." 
+    class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 text-gray-100 placeholder-gray-500 shadow-inner"
+    hx-get="/search" 
+    hx-trigger="keyup changed delay:300ms, search" 
+    hx-target="#project-list"
+    hx-swap="innerHTML"
+  >
+</div>
+
+<div id="project-list">
+  {% include "partials/project_cards.html" %}
+</div>
+{% endblock %}
